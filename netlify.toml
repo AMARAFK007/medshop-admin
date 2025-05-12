@@ -1,3 +1,18 @@
 [build]
   command = "npm run build"
   publish = "out"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
